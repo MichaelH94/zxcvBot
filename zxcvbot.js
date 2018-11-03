@@ -22,7 +22,7 @@ const connection = mysql.createConnection({
 // Client intialized
 client.on("ready", () => {
   console.log("I am ready!");
- // admin.send("zxcvBot is here!")
+  admin.send("zxcvBot is here!")
 });
 
 // Command control
@@ -40,7 +40,7 @@ client.on("message", (message) => {
     }
     
     if(msgTimer.has(userid) && message.content.startsWith(config.pfx)) {
-      msg.channel.send(user + ": Please wait before sending another command.")
+      reply.send(user + ": Please wait before sending another command.")
       return;
     } else { 
   
