@@ -156,6 +156,12 @@ client.on("message", (message) => {
       let lvl = res[0].lvl;
       let charclass = res[0].class;
       let xp = res[0].xp;
+      let hp = res[0].hp;
+      let stam = res[0].stam;
+      let intel = res[0].intel;
+      let str = res[0].str;
+      let spd = res[0].spd;
+      let luck = res[0].luck;
 
       reply.send({embed: { 
         color: 3447003,
@@ -166,11 +172,19 @@ client.on("message", (message) => {
         title: charname,
         fields: [{
           name: "Stats",
-          value: charclass + ", Level: " + lvl + ", XP: " + xp,
+          value: "Class: " + charclass + 
+          "\nLevel: " + lvl + 
+          "\nXP: " + xp +
+          "\nHitpoints: " + hp +
+          "\nStamina: " + stam + 
+          "\nIntelligence: " + intel + 
+          "\nStrength: " + str +
+          "\nSpeed: " + spd + 
+          "\nLuck: " + luck
         },
         {
-          name: "Placeholder",
-          value: "Achievements will go here"
+          name: "Achievements",
+          value: "Achievements, misc. stats will go here"
         }] 
       }    
     });
