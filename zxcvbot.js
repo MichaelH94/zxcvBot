@@ -10,6 +10,7 @@ const msgTimer = new Set();
 const general = client.channels.get("381943210185981955");
 const admin = client.channels.get("489296951381065728");
 const rpgchan = client.channels.get("508147971422945331");
+
 // Database
 const connection = mysql.createConnection({
     host: config.host,
