@@ -23,7 +23,7 @@ const connection = mysql.createConnection({
 // Client intialized
 client.on("ready", () => {
   console.log("I am ready!");
-  admin.send("zxcvBot is here!")
+  // admin.send("zxcvBot is here!")
 });
 
 // Command control
@@ -102,19 +102,47 @@ client.on("message", (message) => {
 // Everything below is for the RPG
   if(command === "createacc") {
     setTimer(userid);
-    if(!args[0] == "" && !args[1] == "") {
+    if(!args[0] == "") {
       var characterName = args[0];
-      var characterClass = args[1];
-      reply.send(userid + " " + args[0] + " " + args[1])
-      reply.send("Creating account...");
-      connection.query(
-        'INSERT INTO Characters (id,charname,class,lvl,xp) VALUES (' 
-        + userid + ',"' + characterName + '","' + characterClass + '",1,0)'
-        + 'IF NOT EXISTS (SELECT * FROM Characters WHERE id = ' + userid + ')');
-      reply.send("Account creation finished (assuming you don't have an account already.)"); 
-      reply.send("Okay " + user + ". You are a " + characterClass);
+      var str = 0;
+      var intel = 0;
+      var spd = 0;
+      reply.send("Okay. " + characterName + ", right? Let's pick a class first.");
+      reply.send("[1] Fighter\n[2] Mage\n[3] Rogue");
+      let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 6000 , errors: ['time'] });
+      collector.on('collect', message => {
+          if (message.content == 1) {
+            connection.query(
+              'INSERT IGNORE Characters (id,charname,class,lvl,xp,hp,stam,intel,str,spd,luck) VALUES (' 
+              + userid + ',"' + characterName+ '","Fighter",1,0,100,50,5,10,5,10)');
+
+            reply.send("Creating account...");
+            reply.send("Account creation finished (assuming you don't have an account already.)"); 
+            reply.send("Check your stats with !stats to confirm account creation.");
+          } else if(message.content == 2) {
+            connection.query(
+              'INSERT IGNORE Characters (id,charname,class,lvl,xp,hp,stam,intel,str,spd,luck) VALUES (' 
+              + userid + ',"' + characterName + '","Mage",1,0,100,50,10,5,5,10)');
+
+            reply.send("Creating account...");
+            reply.send("Account creation finished (assuming you don't have an account already.)"); 
+            reply.send("Check your stats with !stats to confirm account creation.");
+          } else if(message.content == 3) {
+            connection.query(
+              'INSERT IGNORE Characters (id,charname,class,lvl,xp,hp,stam,intel,str,spd,luck) VALUES (' 
+              + userid + ',"' + characterName + '","Rogue",1,0,100,50,5,5,10,10)');
+
+            reply.send("Creating account...");
+            reply.send("Account creation finished (assuming you don't have an account already.)"); 
+            reply.send("Check your stats with !stats to confirm account creation.");
+          } else  {
+              message.channel.send("You need to enter 1, 2 or 3.");
+              return;
+          }
+      })
+      
     } else {
-      reply.send("In order to create your account, please use the following syntax: !createacc [Name] [Class].")
+      reply.send("In order to create your account, you need to include your character's name like this: !createacc [Name].")
       return;
     }
 
@@ -148,6 +176,10 @@ client.on("message", (message) => {
     });
     });
   };
+
+  if(command === "test") {
+     
+  }
 
 // Everything above is for the RPG
 
