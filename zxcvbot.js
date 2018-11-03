@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const quiz = require('./quiz.json');
 const mysql = require('mysql');
-// const inquirer = require('inquirer');
+const msgTimer = new Set();
 
 
 // Database
@@ -30,8 +30,14 @@ client.on("message", (message) => {
     if (!message.content.startsWith(config.pfx) || message.author.bot) {
     return;
     }
-
+    
+    if(msgTimer.has(message.author.id) && message.content.startsWith(config.pfx)) {
+      msg.channel.send(message.author + ": Please wait before sending another command.")
+      return;
+    } else { 
+  
     if(command === "games") {
+      setTimer(message.author.id);
       message.channel.send({embed: { 
         color: 3447003,
         author: {
@@ -45,7 +51,7 @@ client.on("message", (message) => {
         },
         {
           name: "Competitive",
-          value: "Super Smash Bros. Melee, League of Legends (NA)"
+          value: "Super Smash Bros. Melee, Super Smash Bros. Ultimate, League of Legends (NA)"
         }
       ] 
       }
@@ -53,6 +59,7 @@ client.on("message", (message) => {
     }
 
     if(command === "streams") {
+      setTimer(message.author.id);
       message.channel.send({embed: { 
         color: 3447003,
         author: {
@@ -81,21 +88,31 @@ client.on("message", (message) => {
         });
 });
   };
-
+// Everything below is for the RPG
   if(command === "createacc") {
-    message.channel.send("This is currently a test! Let's make you an account.. maybe")
-    var userid = message.author.id;  
-    var user = message.author;
-    message.channel.send("Hey " + user + " let's test uhh, this bot accepting new messages or maybe we'll change the syntax");
-    message.channel.send("Okay. Let's test this properly now")
-    message.channel.send("To create an account we need: ID, Name, Class");
-    message.channel.send(userid + " " + args[0] + " " + args[1])
-    message.channel.send("Okay, let's load this into the database");
-    connection.query('INSERT INTO Characters (id,charname,class,lvl,xp) VALUES (' + userid + ',"' + args[0] + '","' + args[1] + '",1,0)');
-    message.channel.send("Now, let's see if it worked. Please god.");
+    setTimer(message.author.id);
+    if(!args[0] == "" && !args[1] == "") {
+      var userid = message.author.id;  
+      var user = message.author;
+      var characterName = args[0];
+      var characterClass = args[1];
+      message.channel.send(userid + " " + args[0] + " " + args[1])
+      message.channel.send("Creating account...");
+      connection.query(
+        'INSERT INTO Characters (id,charname,class,lvl,xp) VALUES (' 
+        + userid + ',"' + characterName + '","' + characterClass + '",1,0)'
+        + 'IF NOT EXISTS (SELECT * FROM Characters WHERE id = ' + userid + ')');
+      message.channel.send("Account creation finished (assuming you don't have an account already.)"); 
+      message.channel.send("Okay " + user + ". You are a " + characterClass);
+    } else {
+      message.channel.send("In order to create your account, please use the following syntax: !createacc [Name] [Class].")
+      return;
+    }
+
   };
 
-  if(command === "showacc") {
+  if(command === "stats") {
+    setTimer(message.author.id);
     var userid = message.author.id;  
     var user = message.author;
     connection.query('SELECT * FROM Characters WHERE id = ' + userid, function(err,res) {
@@ -104,7 +121,15 @@ client.on("message", (message) => {
     })
   }
 
-}); //End of all commands
+// Everything above is for the RPG
 
+} }); //End of all commands, first } is for timer handling DO NOT REMOVE
+
+function setTimer(x) {
+  msgTimer.add(x);
+  setTimeout(() => {
+    msgTimer.delete(x);
+  }, 3000)
+}
 
 client.login(config.token)
