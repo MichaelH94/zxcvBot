@@ -44,6 +44,17 @@ client.on("message", (message) => {
       reply.send(user + ": Please wait before sending another command.")
       return;
     } else { 
+
+
+    if(command === "zcommands") {
+      reply.send("Currently supported commands: !games, !streams, !gz/grats/gratz !quiz (under development)");
+      setTimer(userid);
+    };
+
+    if(command === "zhelp") {
+      reply.send("Do !zcommands for a list of commands. The Quiz, Text RPG and RS DM simulation are under development. There is a 3 second timer between each command per user."); 
+      setTimer(userid);
+    }
   
     if(command === "games") {
       setTimer(userid);
@@ -60,7 +71,7 @@ client.on("message", (message) => {
         },
         {
           name: "Competitive",
-          value: "Super Smash Bros. Melee, Super Smash Bros. Ultimate, League of Legends (NA)"
+          value: "Super Smash Bros. Melee, Super Smash Bros. Ultimate, League of Legends (NA), Apex Legends"
         }
       ] 
       }
@@ -101,7 +112,7 @@ client.on("message", (message) => {
 
   if(command === "gz" || command === "grats" || command === "gratz") {
       let i = Math.floor(Math.random() * 11); 
-
+      setTimer(userid);
       let u = message.author.username;
 
 
