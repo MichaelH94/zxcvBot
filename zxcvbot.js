@@ -99,6 +99,67 @@ client.on("message", (message) => {
 });
   };
 
+  if(command === "gz" || command === "grats" || command === "gratz") {
+      let i = Math.floor(Math.random() * 11); 
+
+      let u = message.author.username;
+
+
+      if(args[1] == null) {
+        i = 69;
+      };
+
+      switch(i) {
+        case 0:
+        reply.send("Congrats " + u + " on " + args[0] + " " + args[1] + "!");
+        break;
+
+        case 1:
+        reply.send("Aww yeah, congratulations " + u + " on " + args[0] + " " + args[1] + "!");
+        break;
+        
+        case 2:
+        reply.send("OH HELL YEAH DUDE GRATS ON " + args[0] + " " + args[1] + " " + u + "!!!!");
+        break;
+        
+        case 3:
+        reply.send("imagine getting " + args[0] + " " + args[1] + " in 2019 LLOOOOOOOLLLLL grats tho " + u + ".")
+        break;
+
+        case 4:
+        reply.send("gz " + u + "on " + args[0] + " " + args[1] + " ig lol");
+        break;
+
+        case 5: 
+        reply.send("if ur not doing a drop party then idrc about ur " + args[0] + " " + args[1] + " tbfh")
+        break; 
+
+        case 6: 
+        reply.send("GRATS ON " + args[0] + " " + args[1] + " " + u + "!!!!!!!!!!!11")
+        break;
+
+        case 7:
+        reply.send("gz gz gz gz gz gz gz on " + args[0] + " " + args[1] + " " + u + ".");
+        break;
+
+        case 8:
+        reply.send("wow " + u + ", " + args[0] + " " + args[1] + " is pretty gr8 fam gz");
+        break; 
+        
+        case 9: 
+        reply.send("zxcv wins once again because " + u + " just got " + args[0] + " " + args[1] + "!");
+        break;
+
+        case 10:
+        reply.send("lmfao are u serious dude legit no1 cares about ur " + args[0] + " " + args[1] + " " + u + " u noob LOOOL")
+        break;
+
+        case 69:
+        reply.send("Congrats " + u + " on your " + args[0] + "!");
+        break;
+      }
+  }
+
 // Everything below is for the RPG
   if(command === "createacc") {
     setTimer(userid);
