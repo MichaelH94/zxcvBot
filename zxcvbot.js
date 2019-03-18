@@ -6,10 +6,6 @@ const quiz = require('./quiz.json');
 const mysql = require('mysql');
 const msgTimer = new Set();
 
-// Channel control - Replace these with config at home
-const general = client.channels.get("381943210185981955");
-const admin = client.channels.get("489296951381065728");
-const rpgchan = client.channels.get("508147971422945331");
 
 // Database
 const connection = mysql.createConnection({
@@ -23,7 +19,6 @@ const connection = mysql.createConnection({
 // Client intialized
 client.on("ready", () => {
   console.log("I am ready!");
-  // admin.send("zxcvBot is here!")
 });
 
 // Command control
@@ -111,15 +106,22 @@ client.on("message", (message) => {
   };
 
   if(command === "gz" || command === "grats" || command === "gratz") {
-      let i = Math.floor(Math.random() * 11); 
+      let seventythree = client.emojis.find(emoji => emoji.name === "73");
+      let pog = client.emojis.find(emoji => emoji.name === "pog");
+      let i = Math.floor(Math.random() * 14); 
       setTimer(userid);
       let u = message.author.username;
-
 
       if(args[1] == null) {
         i = 69;
       };
 
+      if(args[0] == "73") {
+        i = 73;
+      }
+
+
+      console.log(i);
       switch(i) {
         case 0:
         reply.send("Congrats " + u + " on " + args[0] + " " + args[1] + "!");
@@ -132,42 +134,73 @@ client.on("message", (message) => {
         case 2:
         reply.send("OH HELL YEAH DUDE GRATS ON " + args[0] + " " + args[1] + " " + u + "!!!!");
         break;
-        
+
         case 3:
-        reply.send("imagine getting " + args[0] + " " + args[1] + " in 2019 LLOOOOOOOLLLLL grats tho " + u + ".")
+        reply.send("gz " + u + " on " + args[0] + " " + args[1] + " lol");
         break;
 
-        case 4:
-        reply.send("gz " + u + "on " + args[0] + " " + args[1] + " ig lol");
-        break;
-
-        case 5: 
-        reply.send("if ur not doing a drop party then idrc about ur " + args[0] + " " + args[1] + " tbfh")
-        break; 
-
-        case 6: 
+        case 4: 
         reply.send("GRATS ON " + args[0] + " " + args[1] + " " + u + "!!!!!!!!!!!11")
         break;
 
-        case 7:
+        case 5:
         reply.send("gz gz gz gz gz gz gz on " + args[0] + " " + args[1] + " " + u + ".");
         break;
 
-        case 8:
+        case 6:
         reply.send("wow " + u + ", " + args[0] + " " + args[1] + " is pretty gr8 fam gz");
         break; 
         
-        case 9: 
+        case 7: 
         reply.send("zxcv wins once again because " + u + " just got " + args[0] + " " + args[1] + "!");
         break;
 
-        case 10:
-        reply.send("lmfao are u serious dude legit no1 cares about ur " + args[0] + " " + args[1] + " " + u + " u noob LOOOL")
+        case 8: 
+        reply.send("nice " + args[0] + " " + args[1]);
         break;
 
+        case 9:
+        reply.send("¸,.–·•˜´˜•·–.,¸ CONGRATS ON " + args[0] + " " + args[1] + " " + u + " :D-/-< ¸,.–·•˜´˜•·–.,¸");
+        break;
+
+        case 10: 
+        reply.send("I remember when you weren't " + args[0] + " " + args[1] + u + " but now you are gz");
+        break;
+
+        case 11:
+        reply.send("Hey " + u + " what's your " + args[1] + " level?");
+        reply.send("Oh it's " + args[0] + "? Nice.");
+        break;
+
+        case 12: 
+        reply.send(`${pog} GRATS ON ` + args[0] + " " + args[1] + " " + u + `@@@ ${pog}` );
+        break;
+
+        case 13: 
+        let x = Math.floor(Math.random() * 3);
+        switch(x) {
+          case 0:
+          reply.send("lmfao are u serious dude legit no1 cares about ur " + args[0] + " " + args[1] + " " + u + " u noob LOOOL")
+          break;
+
+          case 1: 
+          reply.send("if ur not doing a drop party then idrc about ur " + args[0] + " " + args[1] + " tbfh")
+          break; 
+        
+          case 2:
+          reply.send("imagine getting " + args[0] + " " + args[1] + " in current year LLOOOOOOOLLLLL grats tho " + u + ".")
+          break;
+        }
+        break;
+        
         case 69:
         reply.send("Congrats " + u + " on your " + args[0] + "!");
         break;
+
+        case 73:
+        reply.send(`${seventythree} ${seventythree} ${seventythree} ${seventythree} GRATS ON ${seventythree} ` + args[1] + " " + u + ` ${seventythree} ${seventythree} ${seventythree} ${seventythree}`);
+        break;
+
       }
   }
 
