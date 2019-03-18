@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
     database: config.dbName
 });
 
-// Client intialized
+// Client initialized
 client.on("ready", () => {
   console.log("I am ready!");
   // admin.send("zxcvBot is here!")
