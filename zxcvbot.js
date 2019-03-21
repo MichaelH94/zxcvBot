@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
     database: config.dbName
 });
 
-// Client intialized
+// Client initialized
 client.on("ready", () => {
   console.log("I am ready!");
 });
@@ -82,7 +82,7 @@ client.on("message", (message) => {
           icon_url: client.user.avatarURL
         },
         title: "List of zxcv member streams",
-        description: "[Mike1337](https://twitch.tv/zxcv1337x)" + ", "+ "[zxcvster](https://twitch.tv/zxcvster)" 
+        description: "[Mike1337 (Runescape, Variety)](https://twitch.tv/zxcv1337x), [zxcvster (League of Legends, CS:GO)](https://twitch.tv/zxcvster), [LP1 (Melee)](https://twitch.tv/yoyoallyall)" 
       }
     });
   }

@@ -1,10 +1,78 @@
 [
     {
-        "question": "What colour is the sky?",
-        "answers": ["blue"]
+        "question": "What language is zxcvBot programmed in?",
+        "answers": ["javascript", "js", "discordjs"]
     },
     {
-        "question": "How many letters are there in the alphabet?",
-        "answers": ["26", "twenty-six", "twenty six", "twentysix"]
+        "question": "Who in zxcv died to one itemers in Falador?",
+        "answers": ["rhinebolt"]
+    },
+    {
+        "question": "What game did team zxcv start on?",
+        "answers": ["runescape", "rs"]
+    },
+    {
+        "question": "What is the unofficial, but also official, theme song of zxcv?",
+        "answers": ["all the small things"]
+    },
+    {
+        "question": "What Runescape item has Mike1337 lost approximately 8 thousand of?",
+        "answers": ["dragonfire shield", "dfs", "dragon fire shield", "dragonfireshield"]
+    },
+    {
+        "question": "What Runescape item did Re-Frozen drop a few minutes after purchasing said item?",
+        "answers": ["dclaws", "claws", "dragon claws", "dragonclaws"]
+    },
+    {
+        "question": "What was Mike1337's first 99 on Runescape?",
+        "answers": ["range", "ranging", "ranged"]
+    },
+    {
+        "question": "What was Re-Frozen's first 99 on Runescape?",
+        "answers": ["fletching", "fletch"]
+    },
+    {
+        "question": "What was Rhinebolt's first 99 on Runescape?",
+        "answers": ["fletching", "fletch"]
+    },
+    {
+        "question": "What was Weloverange's first 99 on Runescape?",
+        "answers": ["fletching", "fletch"]
+    },
+    {
+        "question": "Which member of zxcv got a Divine Sigil drop on Runescape, and then lost it staking?",
+        "answers": ["imt", "i maul too", "brian"]
+    },
+    {
+        "question": "Which zxcv member achieved max total excluding defence on a Zerker?",
+        "answers": ["h4iden", "jake"]
+    },
+    {
+        "question": "Who slayed the scourge of zxcv on Cloudin?",
+        "answers": ["rhinebolt"]
+    },
+    {
+        "question": "What Runescape clan were the first members of zxcv in together?",
+        "answers": ["doa", "dead on arrival"]
+    },
+    {
+        "question": "What skill did zxcv member [REDACTED] famously get caught botting?",
+        "answers": ["hunt", "hunting", "hunter"]
+    },
+    {
+        "question": "wiener dog, wiener dog",
+        "answers": ["riding on a skateboard"]
+    },
+    {
+        "question": "Who does Mike1337 main in Smash?",
+        "answers": ["roy", "our boy"]
+    },
+    {
+        "question": "Who does Kwe3f main in Smash?",
+        "answers": ["sheik", "falco"]
+    },
+    {
+        "question": "When does Mike1337 want you to TB?",
+        "answers": ["NOW"]
     }
 ]
