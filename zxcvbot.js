@@ -62,11 +62,11 @@ client.on("message", (message) => {
         title: "Games currently supported by zxcv",
         fields: [{
           name: "MMOS",
-          value: "Guild Wars 2 (Server: Dragonbrand), OldSchool Runescape (CC: zxcv)",
+          value: "Guild Wars 2 (Server: Dragonbrand), OldSchool Runescape (CC: zxcv), ArcheAge: Unchained (Server: NA-Tyrenos)",
         },
         {
           name: "Competitive",
-          value: "Super Smash Bros. Melee, Super Smash Bros. Ultimate, League of Legends (NA), Apex Legends"
+          value: "Super Smash Bros. Melee, Super Smash Bros. Ultimate, League of Legends (NA)"
         }
       ] 
       }
@@ -82,7 +82,7 @@ client.on("message", (message) => {
           icon_url: client.user.avatarURL
         },
         title: "List of zxcv member streams",
-        description: "[Mike1337 (Runescape, Variety)](https://twitch.tv/zxcv1337x), [zxcvster (League of Legends, CS:GO)](https://twitch.tv/zxcvster), [LP1 (Melee)](https://twitch.tv/yoyoallyall)" 
+        description: "[Mike1337 (Runescape, Variety)](https://twitch.tv/zxcv1337x), [zxcvster (League of Legends, CS:GO)](https://twitch.tv/zxcvster), [LP1 (Melee)](https://twitch.tv/yoyoallyall), [RhinebolT (Variety)](https://twitch.tv/rhinebolt)"
       }
     });
   }
